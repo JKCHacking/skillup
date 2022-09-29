@@ -1,0 +1,68 @@
+---
+- name: Update packages
+  apt:
+    upgrade: dist
+    update_cache: yes
+
+- name: Copy sshd_config file
+  copy:
+    src: "{{ sshd_config_filepath }}"
+    dest: /etc/ssh/sshd_config
+    backup: yes
+
+- name: Restart sshd
+  service:
+    name: sshd
+    state: restarted
+
+- name: Copy logrotate file
+  copy:
+    src: "{{ logrotate_filepath }}" 
+    dest: /etc/logrotate.d/
+
+- name: Install packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ packages }}"
+
+- name: Create system user
+  user:
+    name: ansible-user
+    group: sudo
+    system: yes
+
+- name: Create normal user apple
+  user:
+    name: apple
+    group: sudo
+    system: no
+
+- name: Create normal user banana
+  user:
+    name: banana
+    group: sudo
+    system: no
+
+- name: Create normal user carrot
+  user:
+    name: carrot
+    group: sudo
+    system: no
+
+- name: Set NOPASSWD
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^%sudo'
+    line: '%sudo   ALL=(ALL:ALL) NOPASSWD:ALL'
+
+- name: Change permission shadow file
+  file:
+    path: "{{ shadow_file }}"
+    mode: '0400'
+
+- name: Change permission sys_log file
+  file:
+    path: "{{ sys_log }}"
+    mode: '0600'

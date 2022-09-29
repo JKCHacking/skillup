@@ -1,0 +1,13 @@
+---
+sshd_config_filepath: ../files/sshd_config
+logrotate_filepath: ../files/sample
+shadow_file: /etc/shadow
+sys_log: /var/log/syslog
+packages:
+  - wget
+  - unzip
+  - curl
+  - python-dev
+  - python-pip
+  - git
+  - jq
