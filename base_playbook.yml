@@ -1,7 +1,5 @@
 ---
 - include: playbooks/common.yml
-- include: playbooks/bastion.yml
-  when: role == "bastion"
 - include: playbooks/backend.yml
   when: role == "backend"
 - include: playbooks/frontend.yml
