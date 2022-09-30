@@ -4,16 +4,16 @@
     upgrade: dist
     update_cache: yes
 
-- name: Copy sshd_config file
-  copy:
-    src: "{{ sshd_config_filepath }}"
-    dest: /etc/ssh/sshd_config
-    backup: yes
+# - name: Copy sshd_config file
+#   copy:
+#     src: "{{ sshd_config_filepath }}"
+#     dest: /etc/ssh/sshd_config
+#     backup: yes
 
-- name: Restart sshd
-  service:
-    name: sshd
-    state: restarted
+# - name: Restart sshd
+#   service:
+#     name: sshd
+#     state: restarted
 
 - name: Copy logrotate file
   copy:
