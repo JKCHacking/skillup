@@ -27,6 +27,17 @@
     src: "/tmp/befiles/backend.zip"
     dest: /var/www/html/
 
+- name: Get Instance Private IP address
+  command: ec2metadata --local-ipv4
+  register: private_ip
+  ignore_errors: true
+
+- name: Insert Private IP address
+  lineinfile:
+    path: /var/www/html/frontend.html
+    regexp: '^<body>'
+    line: '<body>My Private IP address is: {{ private_ip }} </body>'
+
 - name: Start apache
   service:
     name: apache2
