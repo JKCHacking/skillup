@@ -4,4 +4,4 @@
   hosts: localhost
   become: root
   roles:
-    - backend
+    - role: '/skillup/roles/backend'
