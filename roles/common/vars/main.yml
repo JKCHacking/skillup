@@ -1,6 +1,6 @@
 ---
 sshd_config_filepath: ../files/sshd_config
-logrotate_filepath: ../files/sample
+logrotate_filepath: ../files/logrotate.conf
 shadow_file: /etc/shadow
 sys_log: /var/log/syslog
 packages:
