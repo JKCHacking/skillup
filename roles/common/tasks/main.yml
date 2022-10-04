@@ -4,6 +4,9 @@
     upgrade: dist
     update_cache: yes
 
+- name: Clear gathered facts from all currently targeted hosts
+  meta: clear_facts
+
 # - name: Copy sshd_config file
 #   copy:
 #     src: "{{ sshd_config_filepath }}"

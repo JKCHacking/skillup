@@ -5,6 +5,3 @@
   become: yes
   roles:
     - role: '/skillup/roles/common'
-  
-- name: Clear gathered facts from all currently targeted hosts
-  meta: clear_facts
