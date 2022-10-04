@@ -50,15 +50,9 @@
   file:
     path: /tmp/fefiles
     state: absent
-  
-- name: Add user 'test'
-  user:
-    name: test
-    group: sudo
-    system: no
 
-- name: Delete user 'test'
+- name: Delete user 'carrot'
   user:
-    name: test
+    name: carrot
     state: absent
     remove: yes
