@@ -34,7 +34,7 @@
 
 - name: Insert Private IP address
   lineinfile:
-    path: /var/www/html/frontend.html
+    path: /var/www/html/backend.html
     regexp: '<body>'
     line: '<body>My Private IP address is: {{ private_ip.stdout }} </body>'
 
